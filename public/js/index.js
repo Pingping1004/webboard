@@ -110,17 +110,17 @@ async function renderPosts() {
                 : '<p>No pictures</p>' // Fallback message
                 }
             </div>
-            ${article.author.id === loggedInUserId
+            ${article.author.userId === loggedInUserId
             ? `<button id="edit-btn-${article.postId}" class="edit-post-btn btn btn-secondary" data-post-id="${article.postId}">Edit</button>
             <button id="delete-btn-${article.postId}" class="delete-post-btn btn btn-danger" data-post-id="${article.postId}">Delete</button>`
             : ''}
             ${loggedInUserRole === 'admin' && article.author.id !== loggedInUserId
                 ? `<button id="delete-btn-${article.postId}" class="delete-post-btn btn btn-danger" data-post-id="${article.postId}">Delete</button>`
             : ''}
-            ${article.author.id === loggedInUserId && loggedInUserRole === 'admin' ? '' : ''}
+            ${article.author.userId === loggedInUserId && loggedInUserRole === 'admin' ? '' : ''}
         </div>`;
 
-        if (article.author.id === loggedInUserId || loggedInUserRole === 'admin') {
+        if (article.author.userId === loggedInUserId || loggedInUserRole === 'admin') {
             const editBtn = mainFeedList.querySelector('.edit-post-btn');
             if (editBtn) {
                 editBtn.addEventListener('click', (event) => {

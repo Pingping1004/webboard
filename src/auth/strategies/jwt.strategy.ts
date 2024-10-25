@@ -3,7 +3,7 @@ import { PassportStrategy } from "@nestjs/passport";
 import { Injectable, UnauthorizedException } from "@nestjs/common";
 import { JwtConstant } from '../constant';
 import { AuthService } from "../auth.service";
-import { UsersService } from "src/users/users.service";
+import { ConfigService } from "@nestjs/config";
 
 interface JwtPayload {
     userId: number;
@@ -23,7 +23,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
                 },
             ]),
             ignoreExpiration: false,
-            secretOrkey: JwtConstant.secret,
+            secretOrKey: JwtConstant.secret,
         });
     }
 
@@ -35,6 +35,6 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         }
 
         console.log('JWT validation user:', user);
-        return { userId: user.id, username: user.username, role: user.role };
+        return { userId: user.userId, username: user.username, role: user.role };
     }
 }

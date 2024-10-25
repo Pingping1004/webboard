@@ -42,14 +42,14 @@ function renderUsers(users) {
     const row = document.createElement('tr');
 
     row.innerHTML = `
-      <td>${user.id}</td>
+      <td>${user.userId}</td>
       <td>${user.username}</td>
-      <td class="role-cell" data-user-id="${user.id}">${user.role}</td>
+      <td class="role-cell" data-user-id="${user.userId}">${user.role}</td>
       <td>
-        <button class="edit-user-btn btn btn-secondary" data-user-id="${user.id}" data-editing="false">Edit</button>
+        <button class="edit-user-btn btn btn-secondary" data-user-id="${user.userId}" data-editing="false">Edit</button>
         ${user.role !== 'admin'
           ?
-          `<button class="delete-user-btn btn btn-danger" data-user-id="${user.id}">Delete</button>`
+          `<button class="delete-user-btn btn btn-danger" data-user-id="${user.userId}">Delete</button>`
         : ''}
       </td>
     `;
