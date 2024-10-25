@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online blog post</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="left-panel">
+                <h3>Hello EJS Admin dashboard page!</h3>
+                <p>User ID: <%= userId %>
+                </p>
+                <p>User role: <%= role %>
+                </p>
+            </div>
+            <div class="right-panel">
+                <% if (users) { %>
+                    <button class="logout-btn btn btn-primary">Logout</button>
+                    <% } else { %>
+                        <button class="signup-login-btn btn btn-primary">Signup/Login</button>
+                        <% } %>
+            </div>
+        </header>
+
+        <section class="user-list">
+            <h4>User List</h4>
+            <main class="user-table-element">
+                <table class="user-table table table-striped">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="user-table tbody"></tbody>
+                </table>
+            </main>
+        </section>
+    </div>
+    <script defer type="module" src="../../public/js/admin.js"></script>
+</body>
+
+</html>

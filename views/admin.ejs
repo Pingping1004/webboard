@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online blog post</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/styles.css">
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="left-panel">
+                <h3>Hello EJS Admin page!</h3>
+                <p>User ID: <%= userId %></p>
+                <p>User role: <%= role %></p>
+            </div>
+            <div class="right-panel">
+                <% if (userId) { %>
+                    <a href="/admin/dashboard">Dashboard</a>
+                    <button class="logout-btn btn btn-primary">Logout</button>
+                    <% } else { %>
+                        <button class="signup-login-btn btn btn-primary">Signup/Login</button>
+                    <% } %>
+            </div>
+        </header>
+
+        <section class="input-post">
+            <input class="input-box" type="text" placeholder="Enter Title" id="title-input">
+            <input class="input-box" name="content" placeholder="What's on your mind" id="content-input">
+            <button class="btn btn-primary" id="create-post-btn">Post</button>
+        </section>
+
+        <main class="main-content"></main>
+    </div>
+    <div class="user-profile"></div>
+    <script defer type="module" src="../public/js/index.js"></script>
+    <script defer type="module" src="../public/js/login.js"></script>
+</body>
+
+</html>
